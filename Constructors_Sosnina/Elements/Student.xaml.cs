@@ -20,9 +20,13 @@ namespace Constructors_Sosnina.Elements
     /// </summary>
     public partial class Student : UserControl
     {
-        public Student()
+        public Student(Classes.Student student)
         {
             InitializeComponent();
+
+            tb_fio.Content = student.GetFIO();
+            tb_scholarship.Content = student.Scholarship ? "Степендия: получает" : "Степендия: не получает";
+            tb_course.Content = $"Курс: {student.Course}";
         }
     }
 }
