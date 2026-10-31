@@ -53,5 +53,12 @@ namespace Constructors_Sosnina
             if(DeltaHeight - scroll.VerticalOffset < 140)
                 CreateStudent();
         }
+
+        public void DeleteStudent(Elements.Student card)
+        {
+            parent.Children.Remove(card);
+            AllStudents.Remove(card.CurrentStudent);
+        }
+
     }
 }

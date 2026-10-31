@@ -38,8 +38,8 @@ namespace Constructors_Sosnina.Classes
             allStudents.Add(new Student("Мохов", "Арутр", "Александрович"));
             allStudents.Add(new Student("Мухтаров", "Далер", "Эралиевич"));
             allStudents.Add(new Student("Носков", "Андрей", "Вячесавович"));
-            return allStudents;
 
+            return allStudents;
         }
     }
 }

@@ -20,6 +20,9 @@
                Margin="9.8,10" Grid.Column="2" Foreground="White" FontSize="14"/>
         <Label x:Name="tb_course" Content="" VerticalContentAlignment="Center" Margin="9.2,10,9.6,10" 
                Grid.Column="3" Foreground="White" FontSize="14"/>
+        <Button Grid.Column="4" Content="✕" Width="30" Height="30" Background="DarkRed" Foreground="White"
+               Click="Delete_Click" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
 
         <Grid.Effect>
             <DropShadowEffect Color="Black" Direction="315" Opacity="0.7" RenderingBias="Performance" BlurRadius="5"/>

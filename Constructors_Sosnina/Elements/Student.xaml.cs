@@ -20,13 +20,23 @@ namespace Constructors_Sosnina.Elements
     /// </summary>
     public partial class Student : UserControl
     {
+        public Classes.Student
+            CurrentStudent;
+
         public Student(Classes.Student student)
         {
             InitializeComponent();
+            CurrentStudent = student;
 
             tb_fio.Content = student.GetFIO();
             tb_scholarship.Content = student.Scholarship ? "Степендия: получает" : "Степендия: не получает";
             tb_course.Content = $"Курс: {student.Course}";
+        }
+
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow main = (MainWindow)System.Windows.Application.Current.MainWindow;
+            main.DeleteStudent(this);
         }
     }
 }
