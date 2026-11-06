@@ -24,7 +24,7 @@ namespace Constructors_Sosnina
         public List<Classes.Student> AllStudents = RepoStudents.AllStudents();
         public int Count = 10;
         public int Step = 0;
-             
+
         public MainWindow()
         {
             InitializeComponent();
@@ -33,9 +33,9 @@ namespace Constructors_Sosnina
 
         public void CreateStudent()
         {
-            for(int iStudent = Step; iStudent < Step + Count; iStudent++)
+            for (int iStudent = Step; iStudent < Step + Count; iStudent++)
             {
-                if(AllStudents.Count > iStudent)
+                if (AllStudents.Count > iStudent)
                 {
                     parent.Children.Add(new Elements.Student(AllStudents[iStudent]));
                 }
@@ -50,9 +50,11 @@ namespace Constructors_Sosnina
             double WindowHeight = scroll.ActualHeight;
             double DeltaHeight = ParentHeight - WindowHeight;
 
-            if(DeltaHeight - scroll.VerticalOffset < 140)
+            if (DeltaHeight - scroll.VerticalOffset < 140)
                 CreateStudent();
         }
+
+
 
         public void DeleteStudent(Elements.Student card)
         {
@@ -60,5 +62,20 @@ namespace Constructors_Sosnina
             AllStudents.Remove(card.CurrentStudent);
         }
 
+        private void Search_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            string text = Search.Text.ToLower();
+
+            parent.Children.Clear();
+
+            foreach (var student in AllStudents)
+            {
+                if (student.GetFIO().ToLower().Contains(text))
+                {
+                    var card = new Elements.Student(student);
+                    parent.Children.Add(card);
+                }
+            }
+        }
     }
 }

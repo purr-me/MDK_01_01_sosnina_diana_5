@@ -15,6 +15,9 @@ namespace Constructors_Sosnina.Classes
         public int Course = 4;
 
 
+        public string ImagePath { get; set; }
+
+
         public Student(string firstname, string lastname, string surname)
         {
             this.Firstname = firstname;
@@ -33,6 +36,15 @@ namespace Constructors_Sosnina.Classes
         {
             this.Course = course;
         }
+
+
+        public Student(string firstname, string lastname, string surname, bool scholarship, int course, string imagePath)
+            : this(firstname, lastname, surname, scholarship, course)
+        {
+            this.ImagePath = imagePath;
+        }
+
+
 
         public string GetFIO() {
             return $"{Lastname} {Firstname} {Surname}";

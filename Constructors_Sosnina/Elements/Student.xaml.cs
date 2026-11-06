@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Microsoft.Win32;
 
 namespace Constructors_Sosnina.Elements
 {
@@ -38,5 +39,23 @@ namespace Constructors_Sosnina.Elements
             MainWindow main = (MainWindow)System.Windows.Application.Current.MainWindow;
             main.DeleteStudent(this);
         }
+
+
+        private void ImageButton_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Title = "Выберите фото студента";
+            openFileDialog.Filter = "Image files (*.png;*.jpeg;*.jpg)|*.png;*.jpeg;*.jpg|All files (*.*)|*.*";
+
+            if (openFileDialog.ShowDialog() == true)
+            {
+                string newImagePath = openFileDialog.FileName;
+
+                tb_image.Source = new BitmapImage(new Uri(newImagePath));
+
+                CurrentStudent.ImagePath = newImagePath;
+            }
+        }
+
     }
 }
